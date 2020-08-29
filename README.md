@@ -34,6 +34,7 @@ core logic for form8ion tools related to JavaScript, like
       * [`dependenciesType` __string__ (_required_)](#dependenciestype-string-required)
         * [Dependency-types Constants](#dependency-types-constants)
     * [`questionNames`](#questionnames)
+    * [`projectTypes`](#projecttypes)
 * [Contributing](#contributing)
   * [Dependencies](#dependencies)
   * [Verification](#verification)
@@ -178,6 +179,14 @@ Constants to define the valid options for [`dependenciesType`](#dependenciestype
 
 Constants defining the question names for the prompts implemented in this
 package
+
+#### `projectTypes`
+
+Constants defining the types of possible JavaScript projects
+
+* `APPLICATION`
+* `PACKAGE`
+* `CLI`
 
 ## Contributing
 
