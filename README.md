@@ -35,6 +35,8 @@ core logic for form8ion tools related to JavaScript, like
         * [Dependency-types Constants](#dependency-types-constants)
     * [`questionNames`](#questionnames)
     * [`projectTypes`](#projecttypes)
+    * [`projectTypeShouldBePublished`](#projecttypeshouldbepublished)
+      * [`projectType` __string__ (_required_)](#projecttype-string-required)
 * [Contributing](#contributing)
   * [Dependencies](#dependencies)
   * [Verification](#verification)
@@ -187,6 +189,17 @@ Constants defining the types of possible JavaScript projects
 * `APPLICATION`
 * `PACKAGE`
 * `CLI`
+
+#### `projectTypeShouldBePublished`
+
+Predicate function to determine if the [project-type](#projecttypes) is one
+that should be published
+
+Takes one argument:
+
+##### `projectType` __string__ (_required_)
+
+Should be one of the [project-type](#projecttypes) options
 
 ## Contributing
 

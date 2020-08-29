@@ -4,4 +4,5 @@ export {default as installDependencies} from './dependencies/install';
 export {unitTestFrameworksSchema} from './testing/options-schemas';
 export {questionNames} from './prompts/question-names';
 export {DEV_DEPENDENCY_TYPE, PROD_DEPENDENCY_TYPE} from './dependencies/types';
-export {projectTypes} from './project-types';
+export {projectTypes} from './project-types/types';
+export {shouldBePublished as projectTypeShouldBePublished} from './project-types/publishable';
