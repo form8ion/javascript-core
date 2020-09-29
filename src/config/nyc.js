@@ -11,7 +11,7 @@ export default async function ({projectRoot, vcs, visibility}) {
   );
 
   return {
-    devDependencies: ['cross-env', 'nyc', '@istanbuljs/nyc-config-babel', 'babel-plugin-istanbul'],
+    devDependencies: ['cross-env', 'nyc', '@istanbuljs/nyc-config-babel'],
     vcsIgnore: {files: [], directories: ['/coverage/', '/.nyc_output/']},
     badges: {
       status: {
