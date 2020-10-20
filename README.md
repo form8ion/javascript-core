@@ -37,6 +37,9 @@ core logic for form8ion tools related to JavaScript, like
     * [`projectTypes`](#projecttypes)
     * [`projectTypeShouldBePublished`](#projecttypeshouldbepublished)
       * [`projectType` __string__ (_required_)](#projecttype-string-required)
+    * [`coverageShouldBeReported`](#coverageshouldbereported)
+      * [`visibility` __string__ (_required_)](#visibility-string-required-1)
+      * [`tests` __object__ (_required_)](#tests-object-required)
 * [Contributing](#contributing)
   * [Dependencies](#dependencies)
   * [Verification](#verification)
@@ -200,6 +203,21 @@ Takes one argument:
 ##### `projectType` __string__ (_required_)
 
 Should be one of the [project-type](#projecttypes) options
+
+#### `coverageShouldBeReported`
+
+Predicate function to determine if coverage should be reported
+
+Takes two arguments:
+
+##### `visibility` __string__ (_required_)
+
+visibility of the project (`Public` or `Private`)
+
+##### `tests` __object__ (_required_)
+
+* `unit` __boolean__ (_optional_)
+  Whether the project will be unit-tested
 
 ## Contributing
 
