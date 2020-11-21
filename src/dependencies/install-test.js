@@ -7,6 +7,7 @@ import npmInstall from './install';
 
 suite('npm install', () => {
   let sandbox;
+  const projectRoot = any.string();
 
   setup(() => {
     sandbox = sinon.createSandbox();
@@ -28,14 +29,14 @@ suite('npm install', () => {
     const dependencies = [duplicateDependency, ...uniqueDependencies, duplicateDependency];
     const dependenciesType = any.word();
 
-    await npmInstall(dependencies, dependenciesType);
+    await npmInstall(dependencies, dependenciesType, projectRoot);
 
     assert.calledWith(
       execa.default,
       `. ~/.nvm/nvm.sh && nvm use && npm install ${
         [duplicateDependency, ...uniqueDependencies].join(' ')
       } --save-${dependenciesType}`,
-      {shell: true}
+      {shell: true, cwd: projectRoot}
     );
   });
 
@@ -44,14 +45,14 @@ suite('npm install', () => {
     const uniqueDependencies = any.listOf(any.word);
     const dependencies = [duplicateDependency, ...uniqueDependencies, duplicateDependency];
 
-    await npmInstall(dependencies, DEV_DEPENDENCY_TYPE);
+    await npmInstall(dependencies, DEV_DEPENDENCY_TYPE, projectRoot);
 
     assert.calledWith(
       execa.default,
       `. ~/.nvm/nvm.sh && nvm use && npm install ${
         [duplicateDependency, ...uniqueDependencies].join(' ')
       } --save-${DEV_DEPENDENCY_TYPE} --save-exact`,
-      {shell: true}
+      {shell: true, cwd: projectRoot}
     );
   });
 });

@@ -3,7 +3,7 @@ import {info, warn} from '@travi/cli-messages';
 import execa from '../../thirdparty-wrappers/execa';
 import {DEV_DEPENDENCY_TYPE} from './types';
 
-export default async function (dependencies, dependenciesType) {
+export default async function (dependencies, dependenciesType, projectRoot) {
   if (dependencies.length) {
     info(`Installing ${dependenciesType} dependencies`, {level: 'secondary'});
 
@@ -11,7 +11,7 @@ export default async function (dependencies, dependenciesType) {
       `. ~/.nvm/nvm.sh && nvm use && npm install ${uniq(dependencies).join(' ')} --save-${dependenciesType}${
         DEV_DEPENDENCY_TYPE === dependenciesType ? ' --save-exact' : ''
       }`,
-      {shell: true}
+      {shell: true, cwd: projectRoot}
     );
   } else warn(`No ${dependenciesType} dependencies to install`);
 }
