@@ -68,7 +68,7 @@
   },
   "dependencies": {
     "@form8ion/mocha-scaffolder": "^1.0.0",
-    "@form8ion/overridable-prompts": "^1.0.1",
+    "@form8ion/overridable-prompts": "^1.1.0",
     "@hapi/hoek": "^9.0.4",
     "@hapi/joi": "^17.1.0",
     "@travi/cli-messages": "^1.0.4",
