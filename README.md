@@ -35,6 +35,7 @@ core logic for form8ion tools related to JavaScript, like
         * [Dependency-types Constants](#dependency-types-constants)
     * [`questionNames`](#questionnames)
     * [`projectTypes`](#projecttypes)
+    * [`packageManagers`](#packagemanagers)
     * [`projectTypeShouldBePublished`](#projecttypeshouldbepublished)
       * [`projectType` __string__ (_required_)](#projecttype-string-required)
     * [`coverageShouldBeReported`](#coverageshouldbereported)
@@ -192,6 +193,13 @@ Constants defining the types of possible JavaScript projects
 * `APPLICATION`
 * `PACKAGE`
 * `CLI`
+
+#### `packageManagers`
+
+Constants defining the available package managers
+
+* `NPM`
+* `YARN`
 
 #### `projectTypeShouldBePublished`
 
