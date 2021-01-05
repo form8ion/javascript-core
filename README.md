@@ -36,6 +36,7 @@ core logic for form8ion tools related to JavaScript, like
     * [`questionNames`](#questionnames)
     * [`projectTypes`](#projecttypes)
     * [`packageManagers`](#packagemanagers)
+      * [Currently available options](#currently-available-options)
     * [`projectTypeShouldBePublished`](#projecttypeshouldbepublished)
       * [`projectType` __string__ (_required_)](#projecttype-string-required)
     * [`coverageShouldBeReported`](#coverageshouldbereported)
@@ -196,7 +197,19 @@ Constants defining the types of possible JavaScript projects
 
 #### `packageManagers`
 
-Constants defining the available package managers
+Map of details for the available package managers
+
+Each item has the following properties:
+
+* `name`: the cli name of the package manager
+* `installationCommand`: the appropriate command for this package manager
+  for installing dependencies
+* `installationFlags`: the appropriate flags for the installation command
+  of this package manager
+  * `dev`: the flag to save the dependency as a `devDependency`
+  * `prod`: the flag to save the dependency as a `dependency`
+
+##### Currently available options
 
 * `NPM`
 * `YARN`

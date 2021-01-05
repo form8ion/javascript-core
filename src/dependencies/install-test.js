@@ -3,7 +3,7 @@ import sinon from 'sinon';
 import any from '@travi/any';
 import * as execa from '../../thirdparty-wrappers/execa';
 import {DEV_DEPENDENCY_TYPE} from './types';
-import npmInstall from './install';
+import install from './install';
 
 suite('npm install', () => {
   let sandbox;
@@ -18,7 +18,7 @@ suite('npm install', () => {
   teardown(() => sandbox.restore());
 
   test('that `npm install` is not run when no dependencies need to be installed', async () => {
-    await npmInstall([]);
+    await install([]);
 
     assert.notCalled(execa.default);
   });
@@ -29,7 +29,7 @@ suite('npm install', () => {
     const dependencies = [duplicateDependency, ...uniqueDependencies, duplicateDependency];
     const dependenciesType = any.word();
 
-    await npmInstall(dependencies, dependenciesType, projectRoot);
+    await install(dependencies, dependenciesType, projectRoot);
 
     assert.calledWith(
       execa.default,
@@ -45,7 +45,7 @@ suite('npm install', () => {
     const uniqueDependencies = any.listOf(any.word);
     const dependencies = [duplicateDependency, ...uniqueDependencies, duplicateDependency];
 
-    await npmInstall(dependencies, DEV_DEPENDENCY_TYPE, projectRoot);
+    await install(dependencies, DEV_DEPENDENCY_TYPE, projectRoot);
 
     assert.calledWith(
       execa.default,
