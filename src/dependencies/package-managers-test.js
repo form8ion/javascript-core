@@ -1,38 +1,45 @@
 import {assert} from 'chai';
 import {DEV_DEPENDENCY_TYPE, PROD_DEPENDENCY_TYPE} from './types';
-import {details} from './package-managers';
+import managers, {details, getDependencyTypeFlag, getExactFlag, getInstallationCommandFor} from './package-managers';
 
-suite('pacakge managers', () => {
-  test('that the names match the cli names', () => {
-    assert.equal({
-      NPM: 'npm',
-      YARN: 'yarn'
-    }.NPM, 'npm');
-    assert.equal({
-      NPM: 'npm',
-      YARN: 'yarn'
-    }.YARN, 'yarn');
+suite('package managers', () => {
+  suite('details', () => {
+    test('that the names match the cli names', () => {
+      assert.equal(managers.NPM, 'npm');
+      assert.equal(managers.YARN, 'yarn');
+    });
+
+    test('that the installation details are correct for npm', () => {
+      const {installationCommand, installationFlags} = details[managers.NPM];
+
+      assert.equal(installationCommand, 'install');
+      assert.equal(installationFlags[DEV_DEPENDENCY_TYPE], 'save-dev');
+      assert.equal(installationFlags[PROD_DEPENDENCY_TYPE], 'save-prod');
+      assert.equal(installationFlags.exact, 'save-exact');
+    });
+
+    test('that the installation details are correct for yarn', () => {
+      const {installationCommand, installationFlags} = details[managers.YARN];
+
+      assert.equal(installationCommand, 'add');
+      assert.equal(installationFlags[DEV_DEPENDENCY_TYPE], 'dev');
+      assert.equal(installationFlags[PROD_DEPENDENCY_TYPE], 'prod');
+      assert.equal(installationFlags.exact, 'exact');
+    });
   });
 
-  test('that the installation details are correct for npm', () => {
-    const {installationCommand, installationFlags} = details[{
-      NPM: 'npm',
-      YARN: 'yarn'
-    }.NPM];
+  suite('resolvers', () => {
+    function assertPackageManagerDetails(manager) {
+      const {installationCommand, installationFlags} = details[manager];
 
-    assert.equal(installationCommand, 'install');
-    assert.equal(installationFlags[DEV_DEPENDENCY_TYPE], 'save-dev');
-    assert.equal(installationFlags[PROD_DEPENDENCY_TYPE], 'save-prod');
-  });
+      assert.equal(getInstallationCommandFor(manager), installationCommand);
+      assert.equal(getDependencyTypeFlag(manager, DEV_DEPENDENCY_TYPE), installationFlags[DEV_DEPENDENCY_TYPE]);
+      assert.equal(getDependencyTypeFlag(manager, PROD_DEPENDENCY_TYPE), installationFlags[PROD_DEPENDENCY_TYPE]);
+      assert.equal(getExactFlag(manager), installationFlags.exact);
+    }
 
-  test('that the installation details are correct for yarn', () => {
-    const {installationCommand, installationFlags} = details[{
-      NPM: 'npm',
-      YARN: 'yarn'
-    }.YARN];
+    test('that the proper details are resolved for `npm`', () => assertPackageManagerDetails(managers.NPM));
 
-    assert.equal(installationCommand, 'add');
-    assert.equal(installationFlags[DEV_DEPENDENCY_TYPE], 'dev');
-    assert.equal(installationFlags[PROD_DEPENDENCY_TYPE], 'prod');
+    test('that the proper details are resolved for `yarn`', () => assertPackageManagerDetails(managers.YARN));
   });
 });

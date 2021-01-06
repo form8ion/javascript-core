@@ -162,7 +162,7 @@ visibility of the project (`Public` or `Private`)
 
 A function that installs the provided package dependencies.
 
-Takes two unnamed arguments:
+Takes four unnamed arguments:
 
 ##### `dependencies` __list of strings__ (_required_)
 
@@ -173,6 +173,15 @@ The list of package names to be installed.
 Defines if the provided list of package names should be installed as prod or
 dev dependencies. If "dev" is provided, the list will be installed with the
 `--save-exact` flag.
+
+##### `projectRoot` __string__ (_optional_)
+
+Filesystem path to the root of the project
+
+##### `packageManger` __string__ (_optional_)
+
+Specifies the name of the package manager to be used for dependency
+installation. Defaults to `npm`
 
 ###### Dependency-types Constants
 

@@ -2,14 +2,17 @@ import uniq from 'lodash.uniq';
 import {info, warn} from '@travi/cli-messages';
 import execa from '../../thirdparty-wrappers/execa';
 import {DEV_DEPENDENCY_TYPE} from './types';
+import packageManagers, {getDependencyTypeFlag, getExactFlag, getInstallationCommandFor} from './package-managers';
 
-export default async function (dependencies, dependenciesType, projectRoot) {
+export default async function (dependencies, dependenciesType, projectRoot, packageManager = packageManagers.NPM) {
   if (dependencies.length) {
     info(`Installing ${dependenciesType} dependencies`, {level: 'secondary'});
 
     await execa(
-      `. ~/.nvm/nvm.sh && nvm use && npm install ${uniq(dependencies).join(' ')} --save-${dependenciesType}${
-        DEV_DEPENDENCY_TYPE === dependenciesType ? ' --save-exact' : ''
+      `. ~/.nvm/nvm.sh && nvm use && ${
+        getInstallationCommandFor(packageManager)
+      } ${uniq(dependencies).join(' ')} --${getDependencyTypeFlag(packageManager, dependenciesType)}${
+        DEV_DEPENDENCY_TYPE === dependenciesType ? ` --${getExactFlag(packageManager)}` : ''
       }`,
       {shell: true, cwd: projectRoot}
     );
