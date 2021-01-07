@@ -43,7 +43,7 @@ suite('install', () => {
 
     assert.calledWith(
       execa.default,
-      `. ~/.nvm/nvm.sh && nvm use && ${installationCommand} ${
+      `. ~/.nvm/nvm.sh && nvm use && ${packageManger} ${installationCommand} ${
         [duplicateDependency, ...uniqueDependencies].join(' ')
       } --${typeFlag}`,
       {shell: true, cwd: projectRoot}
@@ -62,7 +62,7 @@ suite('install', () => {
 
     assert.calledWith(
       execa.default,
-      `. ~/.nvm/nvm.sh && nvm use && ${installationCommand} ${
+      `. ~/.nvm/nvm.sh && nvm use && ${packageManger} ${installationCommand} ${
         [duplicateDependency, ...uniqueDependencies].join(' ')
       } --${typeFlag} --${exactFlag}`,
       {shell: true, cwd: projectRoot}
@@ -82,7 +82,7 @@ suite('install', () => {
 
     assert.calledWith(
       execa.default,
-      `. ~/.nvm/nvm.sh && nvm use && ${installationCommand} ${
+      `. ~/.nvm/nvm.sh && nvm use && ${packageManagers.default.NPM} ${installationCommand} ${
         [duplicateDependency, ...uniqueDependencies].join(' ')
       } --${typeFlag} --${exactFlag}`,
       {shell: true, cwd: projectRoot}

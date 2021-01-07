@@ -9,7 +9,7 @@ export default async function (dependencies, dependenciesType, projectRoot, pack
     info(`Installing ${dependenciesType} dependencies`, {level: 'secondary'});
 
     await execa(
-      `. ~/.nvm/nvm.sh && nvm use && ${
+      `. ~/.nvm/nvm.sh && nvm use && ${packageManager} ${
         getInstallationCommandFor(packageManager)
       } ${uniq(dependencies).join(' ')} --${getDependencyTypeFlag(packageManager, dependenciesType)}${
         DEV_DEPENDENCY_TYPE === dependenciesType ? ` --${getExactFlag(packageManager)}` : ''
