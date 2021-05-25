@@ -24,6 +24,7 @@ suite('nyc scaffolder', () => {
       {
         devDependencies: ['cross-env', 'nyc', '@istanbuljs/nyc-config-babel'],
         vcsIgnore: {files: [], directories: ['/coverage/', '/.nyc_output/']},
+        eslint: {ignore: {directories: ['/coverage/']}},
         badges: {
           status: {
             coverage: {
