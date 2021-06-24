@@ -75,7 +75,6 @@
     "@travi/cli-messages": "^1.0.4",
     "deepmerge": "^4.2.2",
     "execa": "^5.0.0",
-    "inquirer": "^8.0.0",
-    "lodash.uniq": "^4.5.0"
+    "inquirer": "^8.0.0"
   }
 }

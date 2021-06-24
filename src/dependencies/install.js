@@ -1,4 +1,3 @@
-import uniq from 'lodash.uniq';
 import {info, warn} from '@travi/cli-messages';
 import execa from '../../thirdparty-wrappers/execa';
 import {DEV_DEPENDENCY_TYPE} from './types';
@@ -11,7 +10,7 @@ export default async function (dependencies, dependenciesType, projectRoot, pack
     await execa(
       `. ~/.nvm/nvm.sh && nvm use && ${packageManager} ${
         getInstallationCommandFor(packageManager)
-      } ${uniq(dependencies).join(' ')} --${getDependencyTypeFlag(packageManager, dependenciesType)}${
+      } ${[...new Set(dependencies)].join(' ')} --${getDependencyTypeFlag(packageManager, dependenciesType)}${
         DEV_DEPENDENCY_TYPE === dependenciesType ? ` --${getExactFlag(packageManager)}` : ''
       }`,
       {shell: true, cwd: projectRoot}
