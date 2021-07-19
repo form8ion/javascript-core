@@ -16,7 +16,7 @@ export default async function ({projectRoot, vcs, visibility}) {
     eslint: {ignore: {directories: ['/coverage/']}},
     badges: {
       status: {
-        ...vcs && 'GitHub' === vcs.host && 'Public' === visibility && {
+        ...vcs && 'github' === vcs.host && 'Public' === visibility && {
           coverage: {
             img: `https://img.shields.io/codecov/c/github/${vcs.owner}/${vcs.name}.svg`,
             link: `https://codecov.io/github/${vcs.owner}/${vcs.name}`,
