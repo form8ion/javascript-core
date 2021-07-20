@@ -1,6 +1,6 @@
 import {assert} from 'chai';
 import any from '@travi/any';
-import {shouldBeReported} from './coverage';
+import {shouldBeReported} from './predicates';
 
 suite('coverage', () => {
   test('that `true` is returned for public projects that will be unit-tested', () => {
