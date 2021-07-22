@@ -8,3 +8,4 @@ export {projectTypes} from './project-types/types';
 export {default as packageManagers} from './dependencies/package-managers';
 export {shouldBePublished as projectTypeShouldBePublished} from './project-types/publishable';
 export {shouldBeReported as coverageShouldBeReported} from './coverage/predicates';
+export {default as dialects} from './dialects';
