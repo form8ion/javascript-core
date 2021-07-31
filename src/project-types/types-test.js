@@ -6,5 +6,6 @@ suite('project types', () => {
     assert.equal(projectTypes.PACKAGE, 'Package');
     assert.equal(projectTypes.APPLICATION, 'Application');
     assert.equal(projectTypes.CLI, 'CLI');
+    assert.equal(projectTypes.MONOREPO, 'Monorepo');
   });
 });
