@@ -70,7 +70,6 @@
     "testdouble": "3.16.2"
   },
   "dependencies": {
-    "@form8ion/mocha-scaffolder": "^1.0.0",
     "@form8ion/overridable-prompts": "^1.1.0",
     "@hapi/hoek": "^9.2.0",
     "@hapi/joi": "^17.1.0",
