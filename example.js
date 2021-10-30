@@ -1,7 +1,17 @@
 // #### Import
-// remark-usage-ignore-next
+// remark-usage-ignore-next 4
 import stubbedFs from 'mock-fs';
-import {scaffoldUnitTesting, scaffoldChoice, installDependencies, PROD_DEPENDENCY_TYPE} from './lib/index.cjs';
+import td from 'testdouble';
+
+td.replace('execa');
+
+const {
+  scaffoldUnitTesting,
+  scaffoldChoice,
+  installDependencies,
+  PROD_DEPENDENCY_TYPE,
+  questionNames
+} = require('./lib/index.cjs');
 
 // remark-usage-ignore-next
 stubbedFs();
@@ -12,11 +22,12 @@ stubbedFs();
   await scaffoldUnitTesting({
     projectRoot: process.cwd(),
     frameworks: {
-      Mocha: {scaffolder: () => undefined},
-      Jest: {scaffolder: () => undefined}
+      Mocha: {scaffolder: options => options},
+      Jest: {scaffolder: options => options}
     },
     visibility: 'Public',
-    vcs: {host: 'GitHub', owner: 'foo', name: 'bar'}
+    vcs: {host: 'GitHub', owner: 'foo', name: 'bar'},
+    decisions: {[questionNames.UNIT_TEST_FRAMEWORK]: 'Mocha'}
   });
 
   await scaffoldChoice(

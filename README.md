@@ -32,6 +32,8 @@ core logic for form8ion tools related to JavaScript, like
     * [`installDependencies`](#installdependencies)
       * [`dependencies` __list of strings__ (_required_)](#dependencies-list-of-strings-required)
       * [`dependenciesType` __string__ (_required_)](#dependenciestype-string-required)
+      * [`projectRoot` __string__ (_optional_)](#projectroot-string-optional)
+      * [`packageManger` __string__ (_optional_)](#packagemanger-string-optional)
         * [Dependency-types Constants](#dependency-types-constants)
     * [`questionNames`](#questionnames)
     * [`projectTypes`](#projecttypes)
@@ -67,7 +69,13 @@ $ npm install @form8ion/javascript-core --save-prod
 #### Import
 
 ```javascript
-import {scaffoldUnitTesting, scaffoldChoice, installDependencies, PROD_DEPENDENCY_TYPE} from '@form8ion/javascript-core';
+const {
+  scaffoldUnitTesting,
+  scaffoldChoice,
+  installDependencies,
+  PROD_DEPENDENCY_TYPE,
+  questionNames
+} = require('./lib/index.cjs');
 ```
 
 #### Execute
@@ -77,11 +85,12 @@ import {scaffoldUnitTesting, scaffoldChoice, installDependencies, PROD_DEPENDENC
   await scaffoldUnitTesting({
     projectRoot: process.cwd(),
     frameworks: {
-      Mocha: {scaffolder: () => undefined},
-      Jest: {scaffolder: () => undefined}
+      Mocha: {scaffolder: options => options},
+      Jest: {scaffolder: options => options}
     },
     visibility: 'Public',
-    vcs: {host: 'GitHub', owner: 'foo', name: 'bar'}
+    vcs: {host: 'GitHub', owner: 'foo', name: 'bar'},
+    decisions: {[questionNames.UNIT_TEST_FRAMEWORK]: 'Mocha'}
   });
 
   await scaffoldChoice(
