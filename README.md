@@ -126,6 +126,18 @@ Name of the choice. SHOULD match a key from the [`choices` object](#choices-obje
 
 options object to be passed as the only argument to the chosen scaffolder
 
+#### `validateOptions`
+
+Validates provided options against a [joi](https://joi.dev/) schema.
+
+##### `schema` (_required_)
+
+[joi](https://joi.dev/) schema
+
+##### `options` (_required_)
+
+options to compare to the provided schema
+
 #### `scaffoldUnitTesting`
 
 Scaffolder for enabling unit-testing in a project with the ability to choose a
