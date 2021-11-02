@@ -1,4 +1,4 @@
-# javascript-core
+coverageShouldBeReported# javascript-core
 
 core logic for form8ion tools related to JavaScript, like
 [javascript-scaffolder](https://github.com/travi/javascript-scaffolder) and
@@ -22,26 +22,21 @@ core logic for form8ion tools related to JavaScript, like
       * [`choices` __object__ (_required_)](#choices-object-required)
       * [`choice` __string__ (_required_)](#choice-string-required)
       * [`options` __object__ (_optional_)](#options-object-optional)
-    * [`scaffoldUnitTesting`](#scaffoldunittesting)
-      * [`projectRoot` __string__ (_required_)](#projectroot-string-required)
-      * [`frameworks` __object__ (_required_)](#frameworks-object-required)
-      * [`decisions` __object__ (_optional_)](#decisions-object-optional)
-      * [`visibility` __string__ (_required_)](#visibility-string-required)
-      * [`vcs` __object__ (_required_)](#vcs-object-required)
-    * [`unitTestFrameworksSchema`](#unittestframeworksschema)
+    * [`validateOptions`](#validateoptions)
+      * [`schema` (_required_)](#schema-required)
+      * [`options` (_required_)](#options-required)
     * [`installDependencies`](#installdependencies)
       * [`dependencies` __list of strings__ (_required_)](#dependencies-list-of-strings-required)
       * [`dependenciesType` __string__ (_required_)](#dependenciestype-string-required)
       * [`projectRoot` __string__ (_optional_)](#projectroot-string-optional)
       * [`packageManger` __string__ (_optional_)](#packagemanger-string-optional)
         * [Dependency-types Constants](#dependency-types-constants)
-    * [`questionNames`](#questionnames)
     * [`projectTypes`](#projecttypes)
     * [`packageManagers`](#packagemanagers)
     * [`projectTypeShouldBePublished`](#projecttypeshouldbepublished)
       * [`projectType` __string__ (_required_)](#projecttype-string-required)
     * [`coverageShouldBeReported`](#coverageshouldbereported)
-      * [`visibility` __string__ (_required_)](#visibility-string-required-1)
+      * [`visibility` __string__ (_required_)](#visibility-string-required)
       * [`tests` __object__ (_required_)](#tests-object-required)
 * [Contributing](#contributing)
   * [Dependencies](#dependencies)
@@ -69,30 +64,13 @@ $ npm install @form8ion/javascript-core --save-prod
 #### Import
 
 ```javascript
-const {
-  scaffoldUnitTesting,
-  scaffoldChoice,
-  installDependencies,
-  PROD_DEPENDENCY_TYPE,
-  questionNames
-} = require('./lib/index.cjs');
+const {scaffoldChoice, installDependencies, PROD_DEPENDENCY_TYPE} = require('./lib/index.cjs');
 ```
 
 #### Execute
 
 ```javascript
 (async () => {
-  await scaffoldUnitTesting({
-    projectRoot: process.cwd(),
-    frameworks: {
-      Mocha: {scaffolder: options => options},
-      Jest: {scaffolder: options => options}
-    },
-    visibility: 'Public',
-    vcs: {host: 'GitHub', owner: 'foo', name: 'bar'},
-    decisions: {[questionNames.UNIT_TEST_FRAMEWORK]: 'Mocha'}
-  });
-
   await scaffoldChoice(
     {foo: {scaffolder: options => options}},
     'foo',
@@ -138,47 +116,6 @@ Validates provided options against a [joi](https://joi.dev/) schema.
 
 options to compare to the provided schema
 
-#### `scaffoldUnitTesting`
-
-Scaffolder for enabling unit-testing in a project with the ability to choose a
-desired framework from provided options.
-
-Takes a single options object as an argument, containing:
-
-##### `projectRoot` __string__ (_required_)
-
-path to the root of the project
-
-##### `frameworks` __object__ (_required_)
-
-A [`choices` object](#choices-object-required) for defining
-[unit-testing framework options](https://github.com/form8ion/awesome#unit-testing-frameworks)
-
-##### `decisions` __object__ (_optional_)
-
-Answers for prompt questions so that the prompt is skipped at execution time
-
-* keys: __string__ Name of the prompt question
-* values: Hard-coded answer for the prompt question
-
-##### `visibility` __string__ (_required_)
-
-visibility of the project (`Public` or `Private`)
-
-##### `vcs` __object__ (_required_)
-
-* `host` __string__ (_required_)
-  VCS hosting service
-* `owner` __string__ (_required_)
-  account name on the host service for the repository
-* `name` __string__ (_required_)
-  repository name
-
-#### `unitTestFrameworksSchema`
-
-[joi](https://hapi.dev/module/joi/) schema for the choices required for the
-[unit-testing scaffolder](#scaffoldunittesting)
-
 #### `installDependencies`
 
 A function that installs the provided package dependencies.
@@ -210,11 +147,6 @@ Constants to define the valid options for [`dependenciesType`](#dependenciestype
 
 * `PROD_DEPENDENCY_TYPE`
 * `DEV_DEPENDENCY_TYPE`
-
-#### `questionNames`
-
-Constants defining the question names for the prompts implemented in this
-package
 
 #### `projectTypes`
 

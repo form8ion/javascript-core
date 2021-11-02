@@ -1,12 +1,8 @@
-export {default as scaffoldUnitTesting} from './testing/unit';
 export {default as scaffoldChoice} from './choice-scaffolder';
 export {default as installDependencies} from './dependencies/install';
-export {unitTestFrameworksSchema} from './testing/options-schemas';
 export {default as validateOptions} from './options-validator';
-export {questionNames} from './prompts/question-names';
 export {DEV_DEPENDENCY_TYPE, PROD_DEPENDENCY_TYPE} from './dependencies/types';
 export {projectTypes} from './project-types/types';
 export {default as packageManagers} from './dependencies/package-managers';
 export {shouldBePublished as projectTypeShouldBePublished} from './project-types/publishable';
-export {shouldBeReported as coverageShouldBeReported} from './coverage/predicates';
 export {default as dialects} from './dialects';
