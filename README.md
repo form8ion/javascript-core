@@ -199,6 +199,10 @@ visibility of the project (`Public` or `Private`)
 * `unit` __boolean__ (_optional_)
   Whether the project will be unit-tested
 
+#### `determineActiveLtsNodeMajorVersions`
+
+Returns a list of the currently active major LTS versions of node.js
+
 ## Contributing
 
 <!--contribution-badges start -->
