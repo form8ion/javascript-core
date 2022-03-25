@@ -201,7 +201,15 @@ visibility of the project (`Public` or `Private`)
 
 #### `determineActiveLtsNodeMajorVersions`
 
-Returns a list of the currently active major LTS versions of node.js
+Returns a list of the currently active major LTS versions of node.js,
+optionally filtered by a provided semver range.
+
+Accepts an options object as the only argument, with the following properties:
+
+##### `withinRange` __string__ (_optional_)
+
+A semver range, compatible with [node-semver](https://www.npmjs.com/package/semver),
+to filter the list of active major LTS versions by.
 
 ## Contributing
 

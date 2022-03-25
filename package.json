@@ -75,6 +75,7 @@
     "@travi/cli-messages": "^1.0.4",
     "deepmerge": "^4.2.2",
     "execa": "^5.0.0",
-    "inquirer": "^8.0.0"
+    "inquirer": "^8.0.0",
+    "semver": "^7.3.5"
   }
 }
