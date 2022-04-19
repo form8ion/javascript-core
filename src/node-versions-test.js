@@ -22,9 +22,9 @@ suite('node versions', () => {
   });
 
   test('that the list of active LTS versions is filtered by the provided semver range', async () => {
-    semver.satisfies.withArgs('12').returns(false);
-    semver.satisfies.withArgs('14').returns(true);
-    semver.satisfies.withArgs('16').returns(false);
+    semver.satisfies.withArgs('12.0.0').returns(false);
+    semver.satisfies.withArgs('14.0.0').returns(true);
+    semver.satisfies.withArgs('16.0.0').returns(false);
 
     assert.deepEqual(determineActiveLtsNodeMajorVersions({withinRange: any.string()}), [14]);
   });
