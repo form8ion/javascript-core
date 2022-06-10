@@ -211,6 +211,35 @@ Accepts an options object as the only argument, with the following properties:
 A semver range, compatible with [node-semver](https://www.npmjs.com/package/semver),
 to filter the list of active major LTS versions by.
 
+#### `writePackageJson`
+
+Writes the provided config to the `package.json` for the project
+
+Accepts an options object as the only argument, with the following properties:
+
+##### `projectRoot` __string__ (_required_)
+
+Filesystem path to the root of the project
+
+##### `config` __object__ (_required_)
+
+The config to be written to the `package.json` as the entire contents of the
+file
+
+#### `mergeIntoExistingPackageJson`
+
+Merges the provided config into the existing `package.json` for the project
+
+Accepts an options object as the only argument, with the following properties:
+
+##### `projectRoot` __string__ (_required_)
+
+Filesystem path to the root of the project
+
+##### `config` __object__ (_required_)
+
+The config to be merged with the existing contents of the `package.json`
+
 ## Contributing
 
 <!--contribution-badges start -->
