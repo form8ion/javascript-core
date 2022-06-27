@@ -14,8 +14,12 @@
     "node": "^14.15 || >=16"
   },
   "runkitExampleFilename": "./example.js",
-  "main": "lib/index.cjs.js",
-  "module": "lib/index.es.js",
+  "main": "lib/index.js",
+  "module": "lib/index.mjs",
+  "exports": {
+    "require": "./lib/index.js",
+    "import": "./lib/index.mjs"
+  },
   "sideEffects": false,
   "repository": "form8ion/javascript-core",
   "bugs": "https://github.com/form8ion/javascript-core/issues",

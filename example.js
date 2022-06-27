@@ -5,7 +5,7 @@ import td from 'testdouble';
 
 td.replace('execa');
 
-const {scaffoldChoice, installDependencies, PROD_DEPENDENCY_TYPE} = require('./lib/index.cjs');
+const {scaffoldChoice, installDependencies, PROD_DEPENDENCY_TYPE} = require('./lib/index.js');
 
 // remark-usage-ignore-next
 stubbedFs();
