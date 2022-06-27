@@ -9,7 +9,7 @@ export default {
     babel({
       babelrc: false,
       exclude: ['./node_modules/**'],
-      presets: [['@form8ion', {targets: {node: '12.20'}, modules: false}]]
+      presets: [['@form8ion', {targets: {node: '14.15'}, modules: false}]]
     })
   ],
   output: [
