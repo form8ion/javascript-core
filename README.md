@@ -39,6 +39,14 @@ core logic for form8ion tools related to JavaScript, like
     * [`coverageShouldBeReported`](#coverageshouldbereported)
       * [`visibility` __string__ (_required_)](#visibility-string-required)
       * [`tests` __object__ (_required_)](#tests-object-required)
+    * [`determineActiveLtsNodeMajorVersions`](#determineactiveltsnodemajorversions)
+      * [`withinRange` __string__ (_optional_)](#withinrange-string-optional)
+    * [`writePackageJson`](#writepackagejson)
+      * [`projectRoot` __string__ (_required_)](#projectroot-string-required)
+      * [`config` __object__ (_required_)](#config-object-required)
+    * [`mergeIntoExistingPackageJson`](#mergeintoexistingpackagejson)
+      * [`projectRoot` __string__ (_required_)](#projectroot-string-required-1)
+      * [`config` __object__ (_required_)](#config-object-required-1)
 * [Contributing](#contributing)
   * [Dependencies](#dependencies)
   * [Verification](#verification)
@@ -65,7 +73,7 @@ $ npm install @form8ion/javascript-core --save-prod
 #### Import
 
 ```javascript
-const {scaffoldChoice, installDependencies, PROD_DEPENDENCY_TYPE} = require('./lib/index.cjs');
+const {scaffoldChoice} = require('@form8ion/javascript-core');
 ```
 
 #### Execute
@@ -77,8 +85,6 @@ const {scaffoldChoice, installDependencies, PROD_DEPENDENCY_TYPE} = require('./l
     'foo',
     {bar: 'baz'}
   );
-
-  await installDependencies(['foo', 'bar'], PROD_DEPENDENCY_TYPE);
 })();
 ```
 

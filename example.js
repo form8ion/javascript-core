@@ -5,7 +5,7 @@ import td from 'testdouble';
 
 td.replace('execa');
 
-const {scaffoldChoice, installDependencies, PROD_DEPENDENCY_TYPE} = require('./lib/index.js');
+const {scaffoldChoice} = require('./lib/index.js');
 
 // remark-usage-ignore-next
 stubbedFs();
@@ -18,6 +18,4 @@ stubbedFs();
     'foo',
     {bar: 'baz'}
   );
-
-  await installDependencies(['foo', 'bar'], PROD_DEPENDENCY_TYPE);
 })();
