@@ -18,7 +18,7 @@ suite('node versions', () => {
   teardown(() => sandbox.restore());
 
   test('that the currently active LTS major versions of node are listed', async () => {
-    assert.deepEqual(determineActiveLtsNodeMajorVersions(), [12, 14, 16]);
+    assert.deepEqual(determineActiveLtsNodeMajorVersions(), [14, 16]);
   });
 
   test('that the list of active LTS versions is filtered by the provided semver range', async () => {
