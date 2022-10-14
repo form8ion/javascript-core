@@ -4,7 +4,7 @@ import {assert} from 'chai';
 import any from '@travi/any';
 import sinon from 'sinon';
 
-import {determineActiveLtsNodeMajorVersions} from './node-versions';
+import {determineLtsNodeMajorVersions} from './node-versions';
 
 suite('node versions', () => {
   let sandbox;
@@ -17,15 +17,17 @@ suite('node versions', () => {
 
   teardown(() => sandbox.restore());
 
-  test('that the currently active LTS major versions of node are listed', async () => {
-    assert.deepEqual(determineActiveLtsNodeMajorVersions(), [14, 16]);
-  });
+  suite('LTS major versions', () => {
+    test('that the LTS major versions of node are listed', async () => {
+      assert.deepEqual(determineLtsNodeMajorVersions(), [14, 16]);
+    });
 
-  test('that the list of active LTS versions is filtered by the provided semver range', async () => {
-    semver.satisfies.withArgs('12.0.0').returns(false);
-    semver.satisfies.withArgs('14.0.0').returns(true);
-    semver.satisfies.withArgs('16.0.0').returns(false);
+    test('that the list of active LTS versions is filtered by the provided semver range', async () => {
+      semver.satisfies.withArgs('12.0.0').returns(false);
+      semver.satisfies.withArgs('14.0.0').returns(true);
+      semver.satisfies.withArgs('16.0.0').returns(false);
 
-    assert.deepEqual(determineActiveLtsNodeMajorVersions({withinRange: any.string()}), [14]);
+      assert.deepEqual(determineLtsNodeMajorVersions({withinRange: any.string()}), [14]);
+    });
   });
 });

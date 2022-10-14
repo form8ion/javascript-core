@@ -39,14 +39,15 @@ core logic for form8ion tools related to JavaScript, like
     * [`coverageShouldBeReported`](#coverageshouldbereported)
       * [`visibility` __string__ (_required_)](#visibility-string-required)
       * [`tests` __object__ (_required_)](#tests-object-required)
-    * [`determineActiveLtsNodeMajorVersions`](#determineactiveltsnodemajorversions)
-      * [`withinRange` __string__ (_optional_)](#withinrange-string-optional)
     * [`writePackageJson`](#writepackagejson)
       * [`projectRoot` __string__ (_required_)](#projectroot-string-required)
       * [`config` __object__ (_required_)](#config-object-required)
     * [`mergeIntoExistingPackageJson`](#mergeintoexistingpackagejson)
       * [`projectRoot` __string__ (_required_)](#projectroot-string-required-1)
       * [`config` __object__ (_required_)](#config-object-required-1)
+    * [Node version categories](#node-version-categories)
+      * [`determineLtsNodeMajorVersions`](#determineltsnodemajorversions)
+        * [`withinRange` __string__ (_optional_)](#withinrange-string-optional)
 * [Contributing](#contributing)
   * [Dependencies](#dependencies)
   * [Verification](#verification)
@@ -205,18 +206,6 @@ visibility of the project (`Public` or `Private`)
 * `unit` __boolean__ (_optional_)
   Whether the project will be unit-tested
 
-#### `determineActiveLtsNodeMajorVersions`
-
-Returns a list of the currently active major LTS versions of node.js,
-optionally filtered by a provided semver range.
-
-Accepts an options object as the only argument, with the following properties:
-
-##### `withinRange` __string__ (_optional_)
-
-A semver range, compatible with [node-semver](https://www.npmjs.com/package/semver),
-to filter the list of active major LTS versions by.
-
 #### `writePackageJson`
 
 Writes the provided config to the `package.json` for the project
@@ -245,6 +234,25 @@ Filesystem path to the root of the project
 ##### `config` __object__ (_required_)
 
 The config to be merged with the existing contents of the `package.json`
+
+#### Node version categories
+
+Helpers for determining supported node.js versions in categories defined by
+[package support guidelines](https://github.com/nodejs/package-maintenance/blob/a2d9417cc8345a21016a1b62109ae64f9de7f06d/docs/PACKAGE-SUPPORT.md#node-namespace).
+Refer to the [release schedule](https://nodejs.org/en/about/releases/) for
+current statuses.
+
+##### `determineLtsNodeMajorVersions`
+
+Returns a list of the major LTS versions currently in _active_ or _maintenance_
+status, optionally filtered by a provided semver range.
+
+Accepts an options object as the only argument, with the following properties:
+
+###### `withinRange` __string__ (_optional_)
+
+A semver range, compatible with [node-semver](https://www.npmjs.com/package/semver),
+to filter the list of active major LTS versions by.
 
 ## Contributing
 

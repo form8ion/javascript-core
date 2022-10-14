@@ -1,6 +1,6 @@
 import semver from 'semver';
 
-export function determineActiveLtsNodeMajorVersions({withinRange} = {}) {
+export function determineLtsNodeMajorVersions({withinRange} = {}) {
   return [14, 16].filter(majorVersion => {
     if (!withinRange) return true;
 
