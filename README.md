@@ -48,6 +48,8 @@ core logic for form8ion tools related to JavaScript, like
     * [Node version categories](#node-version-categories)
       * [`determineLtsNodeMajorVersions`](#determineltsnodemajorversions)
         * [`withinRange` __string__ (_optional_)](#withinrange-string-optional)
+      * [`determineSupportedNodeMajorVersions`](#determinesupportednodemajorversions)
+        * [`withinRange` __string__ (_optional_)](#withinrange-string-optional-1)
 * [Contributing](#contributing)
   * [Dependencies](#dependencies)
   * [Verification](#verification)
@@ -246,6 +248,18 @@ current statuses.
 
 Returns a list of the major LTS versions currently in _active_ or _maintenance_
 status, optionally filtered by a provided semver range.
+
+Accepts an options object as the only argument, with the following properties:
+
+###### `withinRange` __string__ (_optional_)
+
+A semver range, compatible with [node-semver](https://www.npmjs.com/package/semver),
+to filter the list of active major LTS versions by.
+
+##### `determineSupportedNodeMajorVersions`
+
+Returns a list of the major versions currently not in end-of-life status,
+optionally filtered by a provided semver range.
 
 Accepts an options object as the only argument, with the following properties:
 

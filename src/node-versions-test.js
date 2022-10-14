@@ -4,7 +4,7 @@ import {assert} from 'chai';
 import any from '@travi/any';
 import sinon from 'sinon';
 
-import {determineLtsNodeMajorVersions} from './node-versions';
+import {determineLtsNodeMajorVersions, determineSupportedNodeMajorVersions} from './node-versions';
 
 suite('node versions', () => {
   let sandbox;
@@ -28,6 +28,20 @@ suite('node versions', () => {
       semver.satisfies.withArgs('16.0.0').returns(false);
 
       assert.deepEqual(determineLtsNodeMajorVersions({withinRange: any.string()}), [14]);
+    });
+  });
+
+  suite('supported major versions', () => {
+    test('that the major versions of node are listed', async () => {
+      assert.deepEqual(determineSupportedNodeMajorVersions(), [14, 16, 18]);
+    });
+
+    test('that the list of supported versions is filtered by the provided semver range', async () => {
+      semver.satisfies.withArgs('14.0.0').returns(false);
+      semver.satisfies.withArgs('16.0.0').returns(true);
+      semver.satisfies.withArgs('18.0.0').returns(false);
+
+      assert.deepEqual(determineSupportedNodeMajorVersions({withinRange: any.string()}), [16]);
     });
   });
 });
