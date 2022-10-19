@@ -33,7 +33,7 @@ suite('node versions', () => {
 
   suite('supported major versions', () => {
     test('that the major versions of node are listed', async () => {
-      assert.deepEqual(determineSupportedNodeMajorVersions(), [14, 16, 18]);
+      assert.deepEqual(determineSupportedNodeMajorVersions(), [14, 16, 18, 19]);
     });
 
     test('that the list of supported versions is filtered by the provided semver range', async () => {
