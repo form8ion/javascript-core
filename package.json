@@ -3,28 +3,21 @@
   "description": "core logic for form8ion tools related to JavaScript, like javascript-scaffolder and lift-javascript",
   "license": "MIT",
   "version": "0.0.0-semantically-released",
-  "files": [
-    "example.js",
-    "lib/"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
   "engines": {
     "node": "^14.18 || >=16"
   },
+  "author": "Matt Travi <npm@travi.org> (https://matt.travi.org/)",
+  "repository": "form8ion/javascript-core",
+  "bugs": "https://github.com/form8ion/javascript-core/issues",
+  "homepage": "https://npm.im/@form8ion/javascript-core",
   "runkitExampleFilename": "./example.js",
-  "main": "lib/index.js",
-  "module": "lib/index.mjs",
   "exports": {
     "require": "./lib/index.js",
     "import": "./lib/index.mjs"
   },
+  "main": "lib/index.js",
+  "module": "lib/index.mjs",
   "sideEffects": false,
-  "repository": "form8ion/javascript-core",
-  "bugs": "https://github.com/form8ion/javascript-core/issues",
-  "homepage": "https://npm.im/@form8ion/javascript-core",
-  "author": "Matt Travi <npm@travi.org> (https://matt.travi.org/)",
   "scripts": {
     "test": "npm-run-all --print-label build --parallel lint:* --parallel test:*",
     "lint:lockfile": "lockfile-lint --path package-lock.json --type npm --validate-https --allowed-hosts npm",
@@ -51,6 +44,22 @@
     "test:integration:wip": "run-s 'test:integration:base -- --profile wip'",
     "test:integration:wip:debug": "DEBUG=test run-s 'test:integration:wip'",
     "test:integration:focus": "run-s 'test:integration:base -- --profile focus'"
+  },
+  "files": [
+    "example.js",
+    "lib/"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@form8ion/core": "^2.0.0",
+    "@form8ion/execa-wrapper": "^1.0.0-alpha.1",
+    "@form8ion/overridable-prompts": "^1.1.0",
+    "@hapi/hoek": "^11.0.0",
+    "@travi/cli-messages": "^1.0.4",
+    "deepmerge": "^4.2.2",
+    "semver": "^7.3.5"
   },
   "devDependencies": {
     "@babel/register": "7.18.9",
@@ -83,14 +92,5 @@
     "rollup-plugin-auto-external": "2.0.0",
     "sinon": "15.0.1",
     "testdouble": "3.16.8"
-  },
-  "dependencies": {
-    "@form8ion/core": "^2.0.0",
-    "@form8ion/execa-wrapper": "^1.0.0-alpha.1",
-    "@form8ion/overridable-prompts": "^1.1.0",
-    "@hapi/hoek": "^11.0.0",
-    "@travi/cli-messages": "^1.0.4",
-    "deepmerge": "^4.2.2",
-    "semver": "^7.3.5"
   }
 }
