@@ -1,4 +1,4 @@
-import hoek from '@hapi/hoek';
+import * as hoek from '@hapi/hoek';
 
 export default function (schema, options) {
   const {error, value} = schema.validate(options);
