@@ -19,7 +19,7 @@ suite('node versions', () => {
 
   suite('LTS major versions', () => {
     test('that the LTS major versions of node are listed', async () => {
-      assert.deepEqual(determineLtsNodeMajorVersions(), [14, 16, 18]);
+      assert.deepEqual(determineLtsNodeMajorVersions(), [14, 16, 18, 20]);
     });
 
     test('that the list of active LTS versions is filtered by the provided semver range', async () => {
@@ -33,7 +33,7 @@ suite('node versions', () => {
 
   suite('supported major versions', () => {
     test('that the major versions of node are listed', async () => {
-      assert.deepEqual(determineSupportedNodeMajorVersions(), [14, 16, 18, 19]);
+      assert.deepEqual(determineSupportedNodeMajorVersions(), [14, 16, 18, 19, 20]);
     });
 
     test('that the list of supported versions is filtered by the provided semver range', async () => {
