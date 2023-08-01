@@ -22,9 +22,6 @@ core logic for form8ion tools related to JavaScript, like
       * [`choices` __object__ (_required_)](#choices-object-required)
       * [`choice` __string__ (_required_)](#choice-string-required)
       * [`options` __object__ (_optional_)](#options-object-optional)
-    * [`validateOptions` (_deprecated_)](#validateoptions-deprecated)
-      * [`schema` (_required_)](#schema-required)
-      * [`options` (_required_)](#options-required)
     * [`installDependencies`](#installdependencies)
       * [`dependencies` __list of strings__ (_required_)](#dependencies-list-of-strings-required)
       * [`dependenciesType` __string__ (_required_)](#dependenciestype-string-required)
@@ -113,22 +110,6 @@ Name of the choice. SHOULD match a key from the [`choices` object](#choices-obje
 ##### `options` __object__ (_optional_)
 
 options object to be passed as the only argument to the chosen scaffolder
-
-#### `validateOptions` (_deprecated_)
-
-Validates provided options against a [joi](https://joi.dev/) schema.
-
-This function has been lifted to the [@form8ion/core](https://npm.im/@form8ion/core#validateoptions)
-package and will be removed in the next major version.
-Please use that version instead.
-
-##### `schema` (_required_)
-
-[joi](https://joi.dev/) schema
-
-##### `options` (_required_)
-
-options to compare to the provided schema
 
 #### `installDependencies`
 
