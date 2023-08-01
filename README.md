@@ -301,7 +301,7 @@ $ npm test
 
 [PRs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg
 
-[node-badge]: https://img.shields.io/node/v/@travi/javascript-scaffolder.svg
+[node-badge]: https://img.shields.io/node/v/@form8ion/javascript-core?logo=node.js
 
 [commit-convention-link]: https://conventionalcommits.org
 
