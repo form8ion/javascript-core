@@ -1,5 +1,4 @@
 export {default as scaffoldChoice} from './choice-scaffolder';
-export {default as validateOptions} from './options-validator';
 export {DEV_DEPENDENCY_TYPE, PROD_DEPENDENCY_TYPE} from './dependencies/types';
 export {projectTypes} from './project-types/types';
 export {default as packageManagers} from './dependencies/package-managers';
