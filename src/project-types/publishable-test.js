@@ -1,7 +1,8 @@
 import {assert} from 'chai';
 import any from '@travi/any';
-import {projectTypes} from './types';
-import {shouldBePublished} from './publishable';
+
+import {projectTypes} from './types.js';
+import {shouldBePublished} from './publishable.js';
 
 suite('publishable project-type', () => {
   test('that `true` is returned for `Package` type projects', () => {

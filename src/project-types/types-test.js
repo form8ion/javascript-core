@@ -1,5 +1,6 @@
 import {assert} from 'chai';
-import {projectTypes} from './types';
+
+import {projectTypes} from './types.js';
 
 suite('project types', () => {
   test('that the types match the available project types', () => {

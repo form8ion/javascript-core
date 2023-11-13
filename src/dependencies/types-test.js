@@ -1,5 +1,6 @@
 import {assert} from 'chai';
-import {DEV_DEPENDENCY_TYPE, PROD_DEPENDENCY_TYPE} from './types';
+
+import {DEV_DEPENDENCY_TYPE, PROD_DEPENDENCY_TYPE} from './types.js';
 
 suite('dependency types', () => {
   test('that the types match the installation flags', () => {

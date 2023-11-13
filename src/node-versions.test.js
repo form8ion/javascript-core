@@ -4,7 +4,7 @@ import {afterEach, describe, expect, it, vi} from 'vitest';
 import {when} from 'jest-when';
 import any from '@travi/any';
 
-import {determineLtsNodeMajorVersions, determineSupportedNodeMajorVersions} from './node-versions';
+import {determineLtsNodeMajorVersions, determineSupportedNodeMajorVersions} from './node-versions.js';
 
 vi.mock('semver');
 

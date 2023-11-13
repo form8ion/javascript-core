@@ -1,7 +1,8 @@
 import {assert} from 'chai';
 import any from '@travi/any';
 import sinon from 'sinon';
-import scaffoldTypeChoice from './choice-scaffolder';
+
+import scaffoldTypeChoice from './choice-scaffolder.js';
 
 suite('type choice scaffolder', () => {
   test('that chosen type is scaffolded', async () => {
