@@ -9,6 +9,7 @@ core logic for form8ion tools related to JavaScript, like
 [![Node CI Workflow Status][github-actions-ci-badge]][github-actions-ci-link]
 [![Codecov][coverage-badge]][coverage-link]
 ![SLSA Level 2][slsa-badge]
+[![OpenSSF Scorecard][ossfScorecard-badge]][ossfScorecard-link]
 
 <!--status-badges end -->
 
@@ -323,3 +324,7 @@ $ npm test
 [coverage-badge]: https://img.shields.io/codecov/c/github/form8ion/javascript-core?logo=codecov
 
 [slsa-badge]: https://slsa.dev/images/gh-badge-level2.svg
+
+[ossfScorecard-link]: https://securityscorecards.dev/viewer/?uri=github.com/form8ion/javascript-core
+
+[ossfScorecard-badge]: https://api.securityscorecards.dev/projects/github.com/form8ion/javascript-core/badge
