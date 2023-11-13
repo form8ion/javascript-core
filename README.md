@@ -308,7 +308,7 @@ $ npm test
 
 [npm-link]: https://www.npmjs.com/package/@form8ion/javascript-core
 
-[npm-badge]: https://img.shields.io/npm/v/@form8ion/javascript-core.svg
+[npm-badge]: https://img.shields.io/npm/v/@form8ion/javascript-core?logo=npm
 
 [runkit-link]: https://npm.runkit.com/@form8ion/javascript-core
 
