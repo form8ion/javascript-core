@@ -4,7 +4,7 @@ import sinon from 'sinon';
 import {assert} from 'chai';
 import any from '@travi/any';
 
-import {write, mergeIntoExisting} from './package-json';
+import {write, mergeIntoExisting} from './package-json.js';
 
 suite('package.json config', () => {
   let sandbox;

@@ -1,8 +1,8 @@
-export {default as scaffoldChoice} from './choice-scaffolder';
-export {DEV_DEPENDENCY_TYPE, PROD_DEPENDENCY_TYPE} from './dependencies/types';
-export {projectTypes} from './project-types/types';
-export {default as packageManagers} from './dependencies/package-managers';
-export {shouldBePublished as projectTypeShouldBePublished} from './project-types/publishable';
-export {default as dialects} from './dialects';
-export {determineLtsNodeMajorVersions, determineSupportedNodeMajorVersions} from './node-versions';
-export {write as writePackageJson, mergeIntoExisting as mergeIntoExistingPackageJson} from './package-json';
+export {default as scaffoldChoice} from './choice-scaffolder.js';
+export {DEV_DEPENDENCY_TYPE, PROD_DEPENDENCY_TYPE} from './dependencies/types.js';
+export {projectTypes} from './project-types/types.js';
+export {default as packageManagers} from './dependencies/package-managers.js';
+export {shouldBePublished as projectTypeShouldBePublished} from './project-types/publishable.js';
+export {default as dialects} from './dialects.js';
+export {determineLtsNodeMajorVersions, determineSupportedNodeMajorVersions} from './node-versions.js';
+export {write as writePackageJson, mergeIntoExisting as mergeIntoExistingPackageJson} from './package-json.js';
