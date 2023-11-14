@@ -31,7 +31,7 @@ describe('node-versions', () => {
 
   describe('supported major versions', () => {
     it('should list the major versions of node', async () => {
-      expect(determineSupportedNodeMajorVersions()).toEqual([14, 16, 18, 20]);
+      expect(determineSupportedNodeMajorVersions()).toEqual([14, 16, 18, 20, 21]);
     });
 
     it('should filter the list of supported versions by the provided semver range', async () => {
