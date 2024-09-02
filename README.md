@@ -84,7 +84,7 @@ const {scaffoldChoice} = require('@form8ion/javascript-core');
 ```javascript
 (async () => {
   await scaffoldChoice(
-    {foo: {scaffolder: options => options}},
+    {foo: {scaffold: options => options}},
     'foo',
     {bar: 'baz'}
   );

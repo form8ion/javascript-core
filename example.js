@@ -14,7 +14,7 @@ stubbedFs();
 
 (async () => {
   await scaffoldChoice(
-    {foo: {scaffolder: options => options}},
+    {foo: {scaffold: options => options}},
     'foo',
     {bar: 'baz'}
   );
