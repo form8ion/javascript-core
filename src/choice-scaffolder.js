@@ -3,5 +3,5 @@ export default function (choices, choice, options) {
 
   if (type) return type.scaffold(options);
 
-  return {scripts: {}, dependencies: [], devDependencies: [], vcsIgnore: {files: [], directories: []}};
+  return {};
 }

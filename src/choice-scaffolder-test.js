@@ -19,7 +19,7 @@ suite('type choice scaffolder', () => {
   test('that that choosing a type without a defined scaffolder does not result in an error', async () => {
     assert.deepEqual(
       await scaffoldTypeChoice(any.simpleObject(), any.string()),
-      {scripts: {}, dependencies: [], devDependencies: [], vcsIgnore: {files: [], directories: []}}
+      {}
     );
   });
 });
