@@ -305,7 +305,7 @@ $ npm test
 
 [license-link]: LICENSE
 
-[license-badge]: https://img.shields.io/github/license/form8ion/javascript-core.svg
+[license-badge]: https://img.shields.io/github/license/form8ion/javascript-core.svg?logo=opensourceinitiative
 
 [npm-link]: https://www.npmjs.com/package/@form8ion/javascript-core
 
