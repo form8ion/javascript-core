@@ -3,10 +3,10 @@
   "description": "core logic for form8ion tools related to JavaScript, like javascript-scaffolder and lift-javascript",
   "license": "MIT",
   "version": "0.0.0-semantically-released",
+  "type": "commonjs",
   "engines": {
     "node": "^18.19.0 || ^20.6.1 || >=22"
   },
-  "type": "commonjs",
   "author": "Matt Travi <npm@travi.org> (https://matt.travi.org/)",
   "repository": "form8ion/javascript-core",
   "bugs": "https://github.com/form8ion/javascript-core/issues",
