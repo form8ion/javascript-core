@@ -10,7 +10,7 @@ suite('type choice scaffolder', () => {
     const options = any.simpleObject();
     const results = any.simpleObject();
     const chosenScaffolder = sinon.stub();
-    const choices = {...any.simpleObject(), [choice]: {scaffolder: chosenScaffolder}};
+    const choices = {...any.simpleObject(), [choice]: {scaffold: chosenScaffolder}};
     chosenScaffolder.withArgs(options).resolves(results);
 
     assert.equal(await scaffoldTypeChoice(choices, choice, options), results);
@@ -19,7 +19,7 @@ suite('type choice scaffolder', () => {
   test('that that choosing a type without a defined scaffolder does not result in an error', async () => {
     assert.deepEqual(
       await scaffoldTypeChoice(any.simpleObject(), any.string()),
-      {scripts: {}, dependencies: [], devDependencies: [], vcsIgnore: {files: [], directories: []}}
+      {}
     );
   });
 });
