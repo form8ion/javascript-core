@@ -4,7 +4,7 @@
   "license": "MIT",
   "version": "0.0.0-semantically-released",
   "engines": {
-    "node": "^18.17 || >=20.6.1"
+    "node": "^18.19.0 || ^20.6.1 || >=22"
   },
   "type": "commonjs",
   "author": "Matt Travi <npm@travi.org> (https://matt.travi.org/)",
