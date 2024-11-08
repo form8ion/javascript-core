@@ -17,7 +17,7 @@ describe('node-versions', () => {
 
   describe('LTS major versions', () => {
     it('should list the LTS major versions of node', async () => {
-      expect(determineLtsNodeMajorVersions()).toEqual([18, 20]);
+      expect(determineLtsNodeMajorVersions()).toEqual([18, 20, 22]);
     });
 
     it('should filter the list of active LTS versions by the provided semver range', async () => {
