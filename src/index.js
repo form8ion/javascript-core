@@ -5,4 +5,8 @@ export {default as packageManagers} from './dependencies/package-managers.js';
 export {shouldBePublished as projectTypeShouldBePublished} from './project-types/publishable.js';
 export {default as dialects} from './dialects.js';
 export {determineLtsNodeMajorVersions, determineSupportedNodeMajorVersions} from './node-versions.js';
-export {write as writePackageJson, mergeIntoExisting as mergeIntoExistingPackageJson} from './package-json.js';
+export {
+  write as writePackageJson,
+  mergeIntoExisting as mergeIntoExistingPackageJson,
+  load as loadPackageJson
+} from './package-json.js';
