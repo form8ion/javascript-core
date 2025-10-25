@@ -1,7 +1,7 @@
 import semver from 'semver';
 
 import {afterEach, describe, expect, it, vi} from 'vitest';
-import {when} from 'jest-when';
+import {when} from 'vitest-when';
 import any from '@travi/any';
 
 import {determineLtsNodeMajorVersions, determineSupportedNodeMajorVersions} from './node-versions.js';
@@ -21,10 +21,10 @@ describe('node-versions', () => {
     });
 
     it('should filter the list of active LTS versions by the provided semver range', async () => {
-      when(semver.satisfies).calledWith('18.0.0', providedRange).mockReturnValue(false);
-      when(semver.satisfies).calledWith('20.0.0', providedRange).mockReturnValue(true);
-      when(semver.satisfies).calledWith('22.0.0', providedRange).mockReturnValue(true);
-      when(semver.satisfies).calledWith('24.0.0', providedRange).mockReturnValue(true);
+      when(semver.satisfies).calledWith('18.0.0', providedRange).thenReturn(false);
+      when(semver.satisfies).calledWith('20.0.0', providedRange).thenReturn(true);
+      when(semver.satisfies).calledWith('22.0.0', providedRange).thenReturn(true);
+      when(semver.satisfies).calledWith('24.0.0', providedRange).thenReturn(true);
 
       expect(determineLtsNodeMajorVersions({withinRange: providedRange})).toEqual([20, 22, 24]);
     });
@@ -36,10 +36,10 @@ describe('node-versions', () => {
     });
 
     it('should filter the list of supported versions by the provided semver range', async () => {
-      when(semver.satisfies).calledWith('18.0.0', providedRange).mockReturnValue(false);
-      when(semver.satisfies).calledWith('20.0.0', providedRange).mockReturnValue(true);
-      when(semver.satisfies).calledWith('22.0.0', providedRange).mockReturnValue(true);
-      when(semver.satisfies).calledWith('24.0.0', providedRange).mockReturnValue(true);
+      when(semver.satisfies).calledWith('18.0.0', providedRange).thenReturn(false);
+      when(semver.satisfies).calledWith('20.0.0', providedRange).thenReturn(true);
+      when(semver.satisfies).calledWith('22.0.0', providedRange).thenReturn(true);
+      when(semver.satisfies).calledWith('24.0.0', providedRange).thenReturn(true);
 
       expect(determineSupportedNodeMajorVersions({withinRange: providedRange})).toEqual([20, 22, 24]);
     });

@@ -1,6 +1,6 @@
 import {expect, it, describe, vi} from 'vitest';
 import any from '@travi/any';
-import {when} from 'jest-when';
+import {when} from 'vitest-when';
 
 import scaffoldTypeChoice from './choice-scaffolder.js';
 
@@ -11,7 +11,7 @@ describe('type choice scaffolder', () => {
     const results = any.simpleObject();
     const chosenScaffolder = vi.fn();
     const choices = {...any.simpleObject(), [choice]: {scaffold: chosenScaffolder}};
-    when(chosenScaffolder).calledWith(options).mockResolvedValue(results);
+    when(chosenScaffolder).calledWith(options).thenResolve(results);
 
     expect(await scaffoldTypeChoice(choices, choice, options)).toEqual(results);
   });

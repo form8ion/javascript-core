@@ -2,7 +2,7 @@ import {fileTypes, mergeIntoExistingConfigFile, writeConfigFile, loadConfigFile}
 
 import {describe, expect, it, vi} from 'vitest';
 import any from '@travi/any';
-import {when} from 'jest-when';
+import {when} from 'vitest-when';
 
 import {mergeIntoExisting, write, load} from './package-json.js';
 
@@ -37,7 +37,7 @@ describe('package.json config', () => {
   it('should load the existing config', async () => {
     when(loadConfigFile)
       .calledWith({format: fileTypes.JSON, name: 'package', path: projectRoot})
-      .mockResolvedValue(config);
+      .thenResolve(config);
 
     expect(await load({projectRoot})).toEqual(config);
   });
