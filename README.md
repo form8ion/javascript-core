@@ -321,7 +321,7 @@ $ npm test
 
 [coverage-link]: https://codecov.io/github/form8ion/javascript-core
 
-[coverage-badge]: https://img.shields.io/codecov/c/github/form8ion/javascript-core?logo=codecov
+[coverage-badge]: https://img.shields.io/codecov/c/github/form8ion/javascript-core/master?logo=codecov
 
 [slsa-badge]: https://slsa.dev/images/gh-badge-level2.svg
 
