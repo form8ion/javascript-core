@@ -10,3 +10,4 @@ export {
   mergeIntoExisting as mergeIntoExistingPackageJson,
   load as loadPackageJson
 } from './package-json.js';
+export {read as loadNpmrc, write as writeNpmrc} from './npm-config/index.js';
