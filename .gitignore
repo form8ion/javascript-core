@@ -1,0 +1,10 @@
+/node_modules/
+/lib/
+/coverage/
+/.nyc_output/
+
+.eslintcache
+.idea
+!.idea/
+.idea/*
+!.idea/runConfigurations/
